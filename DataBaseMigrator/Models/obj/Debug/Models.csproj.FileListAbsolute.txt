@@ -34,3 +34,4 @@ C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Mo
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.dll
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.pdb
+C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.csprojAssemblyReference.cache
