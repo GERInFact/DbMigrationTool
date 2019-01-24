@@ -15,6 +15,7 @@ namespace Models
 
             container.RegisterType<IDatabaseInformation, DatabaseInformation>();
             container.RegisterType<IAccessLayer<brandkuerzel>, MySqlAccessLayer<brandkuerzel>>();
+            container.RegisterType<ISerializer<brandkuerzel>, CustomXmlSerializer<brandkuerzel>>();
 
             return container;
         }

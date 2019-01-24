@@ -14,7 +14,7 @@ namespace AccessManager.AccessLayer
         {
             this.ConnectionString = string.Empty;
             this.Option = option;
-            this.Work = Factory.CreateWorkUnit();
+            this.Work = Factory.GetWorkUnit();
         }
 
         public string ConnectionString { get; set; }

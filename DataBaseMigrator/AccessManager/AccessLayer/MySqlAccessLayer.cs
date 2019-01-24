@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AccessManager.AccessLayer.Interfaces;
 using AccessManager.Helper;
 using DevExpress.Xpo;
+using Models;
 
 namespace AccessManager.AccessLayer
 {
@@ -15,12 +16,12 @@ namespace AccessManager.AccessLayer
 
         public MySqlAccessLayer(IDatabaseInformation dbInfo)
         {
-            this._dbInfo = dbInfo ?? Factory.CreateDefaultDatabaseInformation();
             
+            this._dbInfo = dbInfo ?? Factory.CreateDefaultDatabaseInformation();
         }
         public void Create()
         {
-          Factory.CreateBrand(this._dbInfo.Work);
+            Factory.CreateBrand(this._dbInfo.Work);
 
             this._dbInfo.Work.CommitChanges();
         }

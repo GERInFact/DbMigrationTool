@@ -4,10 +4,10 @@ using DevExpress.Xpo;
 
 namespace AccessManager.AccessLayer.Interfaces
 {
-    public interface IAccessLayer<T> where T: XPLiteObject, new()
+    public interface IAccessLayer<T> where T: XPLiteObject, new() 
     {
         void Create();
-        IEnumerable<T> Read();
+       IEnumerable<T> Read();
         void Update();
         void Delete(T data);
         Task CreateAsync();
