@@ -37,6 +37,7 @@
             this.btnDeserialize = new System.Windows.Forms.Button();
             this.btnWriteToDb = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridDatabase)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +53,14 @@
             // 
             // txtSqlConnectionString
             // 
-            this.txtSqlConnectionString.Location = new System.Drawing.Point(13, 12);
+            this.txtSqlConnectionString.Location = new System.Drawing.Point(13, 98);
             this.txtSqlConnectionString.Name = "txtSqlConnectionString";
             this.txtSqlConnectionString.Size = new System.Drawing.Size(685, 20);
             this.txtSqlConnectionString.TabIndex = 4;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 38);
+            this.btnConnect.Location = new System.Drawing.Point(12, 124);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(685, 51);
             this.btnConnect.TabIndex = 5;
@@ -69,7 +70,7 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(13, 119);
+            this.btnReload.Location = new System.Drawing.Point(13, 205);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(318, 51);
             this.btnReload.TabIndex = 6;
@@ -78,7 +79,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(379, 119);
+            this.btnUpdate.Location = new System.Drawing.Point(379, 205);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(318, 51);
             this.btnUpdate.TabIndex = 7;
@@ -87,7 +88,7 @@
             // 
             // btnSerialize
             // 
-            this.btnSerialize.Location = new System.Drawing.Point(11, 328);
+            this.btnSerialize.Location = new System.Drawing.Point(11, 391);
             this.btnSerialize.Name = "btnSerialize";
             this.btnSerialize.Size = new System.Drawing.Size(318, 51);
             this.btnSerialize.TabIndex = 8;
@@ -98,7 +99,7 @@
             // 
             // btnDeserialize
             // 
-            this.btnDeserialize.Location = new System.Drawing.Point(377, 328);
+            this.btnDeserialize.Location = new System.Drawing.Point(377, 391);
             this.btnDeserialize.Name = "btnDeserialize";
             this.btnDeserialize.Size = new System.Drawing.Size(318, 51);
             this.btnDeserialize.TabIndex = 9;
@@ -109,7 +110,7 @@
             // 
             // btnWriteToDb
             // 
-            this.btnWriteToDb.Location = new System.Drawing.Point(10, 412);
+            this.btnWriteToDb.Location = new System.Drawing.Point(10, 475);
             this.btnWriteToDb.Name = "btnWriteToDb";
             this.btnWriteToDb.Size = new System.Drawing.Size(318, 51);
             this.btnWriteToDb.TabIndex = 10;
@@ -121,17 +122,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(221, 275);
+            this.label1.Location = new System.Drawing.Point(221, 338);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 37);
             this.label1.TabIndex = 11;
             this.label1.Text = "Data Integration";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(221, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(236, 37);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Data Extraction";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 626);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnWriteToDb);
             this.Controls.Add(this.btnDeserialize);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.Button btnDeserialize;
         private System.Windows.Forms.Button btnWriteToDb;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
