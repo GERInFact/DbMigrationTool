@@ -29,7 +29,7 @@ namespace AccessManager.AccessLayer
 
         public async Task ConnectToSqlDbAsync(string connectionString)
         {
-            await Task.Run(() => this.ConnectToMySqlDb(connectionString));
+            await Task.Run(() => this.ConnectToSqlDb(connectionString));
         }
 
         public void ConnectToMySqlDb(string connectionString)

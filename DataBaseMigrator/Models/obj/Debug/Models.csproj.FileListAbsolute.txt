@@ -30,7 +30,6 @@ C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Mo
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\bin\Debug\DevExpress.Xpo.v18.2.xml
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\bin\Debug\Unity.Abstractions.pdb
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\bin\Debug\Unity.Container.pdb
-C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.csprojAssemblyReference.cache
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\mahille\source\repos\MarsMediaDataBaseMigrationTool\DataBaseMigrator\Models\obj\Debug\Models.dll

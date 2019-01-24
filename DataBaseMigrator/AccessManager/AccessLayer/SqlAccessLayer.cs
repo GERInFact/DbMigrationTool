@@ -83,7 +83,7 @@ namespace AccessManager.AccessLayer
 
         ~SqlAccessLayer()
         {
-            this._dbInfo.Work?.PurgeDeletedObjects();
+            //this._dbInfo.Work?.PurgeDeletedObjects();
             this._dbInfo.Work?.Dispose();
         }
     }

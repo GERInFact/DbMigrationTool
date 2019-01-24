@@ -1,11 +1,9 @@
 ﻿using AccessManager.AccessLayer;
 using AccessManager.AccessLayer.Interfaces;
-using DataBaseMigrator;
-using DevExpress.Xpo.DB;
+using Models;
 using Unity;
-using Unity.Resolution;
 
-namespace Models
+namespace DataBaseMigrator
 {
     public static class DependencyManager
     {
@@ -14,7 +12,7 @@ namespace Models
             var container = new UnityContainer();
 
             container.RegisterType<IDatabaseInformation, DatabaseInformation>();
-            container.RegisterType<IAccessLayer<brandkuerzel>, MySqlAccessLayer<brandkuerzel>>();
+            container.RegisterType<IAccessLayer<brandkuerzel>, SqlAccessLayer<brandkuerzel>>();
             container.RegisterType<ISerializer<brandkuerzel>, CustomXmlSerializer<brandkuerzel>>();
 
             return container;
