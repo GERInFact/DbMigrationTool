@@ -43,12 +43,19 @@
             // 
             // gridDatabase
             // 
+            this.gridDatabase.AllowUserToOrderColumns = true;
+            this.gridDatabase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gridDatabase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridDatabase.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridDatabase.BackgroundColor = System.Drawing.Color.Maroon;
+            this.gridDatabase.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDatabase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDatabase.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gridDatabase.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gridDatabase.GridColor = System.Drawing.Color.White;
-            this.gridDatabase.Location = new System.Drawing.Point(704, 12);
+            this.gridDatabase.Location = new System.Drawing.Point(716, 0);
             this.gridDatabase.Name = "gridDatabase";
-            this.gridDatabase.Size = new System.Drawing.Size(474, 602);
+            this.gridDatabase.Size = new System.Drawing.Size(474, 626);
             this.gridDatabase.TabIndex = 3;
             // 
             // txtSqlConnectionString
@@ -57,6 +64,7 @@
             this.txtSqlConnectionString.Name = "txtSqlConnectionString";
             this.txtSqlConnectionString.Size = new System.Drawing.Size(685, 20);
             this.txtSqlConnectionString.TabIndex = 4;
+            this.txtSqlConnectionString.Text = "Enter your connection string...";
             // 
             // btnConnect
             // 
@@ -142,6 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1190, 626);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

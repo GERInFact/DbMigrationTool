@@ -18,6 +18,7 @@ namespace DataBaseMigrator
     {
         private readonly IAccessLayer<brandkuerzel> _accessLayer;
         private readonly ISerializer<brandkuerzel> _serializer;
+        private IEnumerable<brandkuerzel> _brandAbbreviations;
 
 
         public Form1(IAccessLayer<brandkuerzel> accessLayer, ISerializer<brandkuerzel> serializer)
@@ -51,8 +52,8 @@ namespace DataBaseMigrator
         {
             try
             {
-                var abbreviations = await this._accessLayer.ReadAsync();
-                this._serializer.Write(abbreviations.ToList(), Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"));
+                this._brandAbbreviations = await this._accessLayer.ReadAsync();
+                this._serializer.Write(this._brandAbbreviations.ToList(), Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"));
             }
             catch (Exception exception)
             {
@@ -68,6 +69,7 @@ namespace DataBaseMigrator
                 var list = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"))
                                .ToList();
                 this.gridDatabase.DataSource = list;
+                this.gridDatabase.Update();
                 
             }
             catch (Exception exception)
@@ -81,10 +83,10 @@ namespace DataBaseMigrator
         {
             try
             {
-                var list = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"))
+                this._brandAbbreviations = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"))
                                .ToList();
 
-                list.ForEach(x => Factory.CreateBrand(Factory.GetWorkUnit(), x));
+                this._brandAbbreviations.ToList().ForEach(x => Factory.CreateBrand(Factory.GetWorkUnit(), x));
                 await this._accessLayer.UpdateAsync();
             }
             catch (Exception exception)
@@ -93,7 +95,5 @@ namespace DataBaseMigrator
 
             }
         }
-
-      
     }
 }

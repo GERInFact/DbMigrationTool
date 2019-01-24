@@ -51,5 +51,10 @@ namespace AccessManager.AccessLayer
             return !string.IsNullOrWhiteSpace(this.ConnectionString)
                 && !this.Work.IsConnected;
         }
+
+        ~DatabaseInformation()
+        {
+            Factory.GetWorkUnit().Dispose();
+        }
     }
 }
