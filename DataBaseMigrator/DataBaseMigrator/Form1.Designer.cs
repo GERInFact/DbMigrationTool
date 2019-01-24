@@ -68,12 +68,13 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnConnect.AutoSize = true;
             this.btnConnect.BackColor = System.Drawing.Color.White;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(13, 169);
+            this.btnConnect.Location = new System.Drawing.Point(14, 74);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(685, 51);
+            this.btnConnect.Size = new System.Drawing.Size(685, 102);
             this.btnConnect.TabIndex = 5;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = false;
@@ -81,37 +82,40 @@
             // 
             // btnReload
             // 
+            this.btnReload.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnReload.AutoSize = true;
             this.btnReload.BackColor = System.Drawing.Color.White;
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(14, 250);
+            this.btnReload.Location = new System.Drawing.Point(14, 199);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(318, 51);
+            this.btnReload.Size = new System.Drawing.Size(318, 109);
             this.btnReload.TabIndex = 6;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnUpdate.AutoSize = true;
             this.btnUpdate.BackColor = System.Drawing.Color.White;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(380, 250);
+            this.btnUpdate.Location = new System.Drawing.Point(381, 199);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(318, 51);
+            this.btnUpdate.Size = new System.Drawing.Size(318, 109);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnSerialize
             // 
+            this.btnSerialize.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSerialize.AutoSize = true;
             this.btnSerialize.BackColor = System.Drawing.Color.Black;
             this.btnSerialize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSerialize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSerialize.Location = new System.Drawing.Point(13, 494);
+            this.btnSerialize.Location = new System.Drawing.Point(12, 506);
             this.btnSerialize.Name = "btnSerialize";
-            this.btnSerialize.Size = new System.Drawing.Size(318, 51);
+            this.btnSerialize.Size = new System.Drawing.Size(318, 107);
             this.btnSerialize.TabIndex = 8;
             this.btnSerialize.Text = "Save Data as XML";
             this.btnSerialize.UseMnemonic = false;
@@ -120,13 +124,14 @@
             // 
             // btnDeserialize
             // 
+            this.btnDeserialize.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDeserialize.AutoSize = true;
             this.btnDeserialize.BackColor = System.Drawing.Color.Black;
             this.btnDeserialize.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeserialize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDeserialize.Location = new System.Drawing.Point(379, 494);
+            this.btnDeserialize.Location = new System.Drawing.Point(379, 506);
             this.btnDeserialize.Name = "btnDeserialize";
-            this.btnDeserialize.Size = new System.Drawing.Size(318, 51);
+            this.btnDeserialize.Size = new System.Drawing.Size(318, 107);
             this.btnDeserialize.TabIndex = 9;
             this.btnDeserialize.Text = "Load from XML";
             this.btnDeserialize.UseMnemonic = false;
@@ -135,13 +140,14 @@
             // 
             // btnWriteToDb
             // 
+            this.btnWriteToDb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnWriteToDb.AutoSize = true;
             this.btnWriteToDb.BackColor = System.Drawing.Color.Black;
             this.btnWriteToDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWriteToDb.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnWriteToDb.Location = new System.Drawing.Point(12, 418);
+            this.btnWriteToDb.Location = new System.Drawing.Point(12, 390);
             this.btnWriteToDb.Name = "btnWriteToDb";
-            this.btnWriteToDb.Size = new System.Drawing.Size(685, 51);
+            this.btnWriteToDb.Size = new System.Drawing.Size(685, 100);
             this.btnWriteToDb.TabIndex = 10;
             this.btnWriteToDb.Text = "Write to DB";
             this.btnWriteToDb.UseVisualStyleBackColor = false;
@@ -149,9 +155,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 364);
+            this.label1.Location = new System.Drawing.Point(171, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(383, 34);
             this.label1.TabIndex = 11;
@@ -159,9 +166,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(192, 113);
+            this.label2.Location = new System.Drawing.Point(171, 353);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(360, 34);
             this.label2.TabIndex = 12;
