@@ -23,9 +23,19 @@ namespace Models
         {
             if (info == null) throw new ArgumentNullException(nameof(info));
 
-            this.BrandId = (int)info.GetValue(nameof(this.BrandId), typeof(int));
-            this.Brand = info.GetValue(nameof(this.Brand), typeof(string)) as string ?? string.Empty;
-            this._kuerzel = info.GetValue(nameof(this.Kuerzel), typeof(string)) as string ?? string.Empty;
+            this.GetType()
+                .GetProperties(BindingFlags.Public)
+                .ToList()
+                .ForEach(p =>
+                {
+                     p.SetValue(p, info.GetValue(p.Name, p.PropertyType));
+                });
+
+             /*this.BrandId = (int)info.GetValue(nameof(this.BrandId), typeof(int));
+             this.Brand = info.GetValue(nameof(this.Brand), typeof(string)) as string ?? string.Empty;
+             this._kuerzel = info.GetValue(nameof(this.Kuerzel), typeof(string)) as string ?? string.Empty;*/
+
+
         }
 
         public brandkuerzel()

@@ -18,7 +18,7 @@ namespace DataBaseMigrator
         [STAThread]
         static void Main()
         {
-            using (var container = DependencyManager.GetConfiguredContainer())
+            using (var container = DependencyManager<assets>.GetConfiguredContainer())
             {
 
                 Application.EnableVisualStyles();

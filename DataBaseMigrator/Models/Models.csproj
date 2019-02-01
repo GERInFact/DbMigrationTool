@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="agreement.cs" />
     <Compile Include="brandkuerzel.cs" />
+    <Compile Include="assets.cs" />
     <Compile Include="ISerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomXmlSerializer.cs" />

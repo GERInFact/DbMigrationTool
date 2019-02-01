@@ -64,7 +64,7 @@
             this.txtSqlConnectionString.Name = "txtSqlConnectionString";
             this.txtSqlConnectionString.Size = new System.Drawing.Size(685, 20);
             this.txtSqlConnectionString.TabIndex = 4;
-            this.txtSqlConnectionString.Text = "Enter your connection string...";
+            this.txtSqlConnectionString.Text = "Server=PW1887\\MY_TEST_INSTANCE;Database=myBigDb;Trusted_Connection=True;";
             // 
             // btnConnect
             // 

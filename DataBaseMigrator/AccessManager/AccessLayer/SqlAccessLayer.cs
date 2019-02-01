@@ -20,7 +20,7 @@ namespace AccessManager.AccessLayer
 
         public void Create()
         {
-            Factory.CreateBrand(this._dbInfo.Work);
+            Factory.CreateAsset(this._dbInfo.Work);
             this._dbInfo.Work.CommitChanges();
         }
 
@@ -39,7 +39,7 @@ namespace AccessManager.AccessLayer
             if (data == null)
                 return;
 
-            Factory.CreateBrand(this._dbInfo.Work);
+            Factory.CreateAsset(this._dbInfo.Work);
             this._dbInfo.Work.CommitChanges();
         }
 

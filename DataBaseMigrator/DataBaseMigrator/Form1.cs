@@ -16,14 +16,14 @@ namespace DataBaseMigrator
 {
     public partial class Form1 : Form
     {
-        private readonly IAccessLayer<brandkuerzel> _accessLayer;
-        private readonly ISerializer<brandkuerzel> _serializer;
-        private IEnumerable<brandkuerzel> _brandAbbreviations;
+        private readonly IAccessLayer<assets> _accessLayer;
+        private readonly ISerializer<assets> _serializer;
+        private IEnumerable<assets> _assetInfos;
 
 
-        public Form1(IAccessLayer<brandkuerzel> accessLayer, ISerializer<brandkuerzel> serializer)
+        public Form1(IAccessLayer<assets> accessLayer, ISerializer<assets> serializer)
         {
-            this._serializer = serializer ?? Factory.CreateDefaultSerializer<brandkuerzel>();
+            this._serializer = serializer ?? Factory.CreateDefaultSerializer<assets>();
             this._accessLayer = accessLayer ?? throw new ArgumentNullException(nameof(accessLayer));
             this.InitializeComponent();
         }
@@ -34,11 +34,8 @@ namespace DataBaseMigrator
             {
                 this._accessLayer.SetConnectionString(this.txtSqlConnectionString.Text);
                 await this._accessLayer.ConnectToDbAsync();
-                var data = await this._accessLayer.ReadAsync();
-                this.gridDatabase.DataSource = data.ToList();
-                this.gridDatabase.Update();
+                MessageBox.Show("Connected to database: " + Factory.GetWorkUnit().Connection);
 
-                
             }
             catch (Exception exception)
             {
@@ -52,8 +49,9 @@ namespace DataBaseMigrator
         {
             try
             {
-                this._brandAbbreviations = await this._accessLayer.ReadAsync();
-                this._serializer.Write(this._brandAbbreviations.ToList(), Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"));
+                this._assetInfos = await this._accessLayer.ReadAsync();
+                this._assetInfos = this._assetInfos.OrderBy(x => x.AssetId).ToList();
+                this._serializer.Write(this._assetInfos, Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"));
             }
             catch (Exception exception)
             {
@@ -62,13 +60,14 @@ namespace DataBaseMigrator
          
         }
 
-        private void btnDeserialize_Click(object sender, EventArgs e)
+        private async void btnDeserialize_Click(object sender, EventArgs e)
         {
             try
             {
-                var list = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"))
-                               .ToList();
+                this.gridDatabase.DataSource = null;
+                var list = await Task.Run(() =>this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml")).ToList());
                 this.gridDatabase.DataSource = list;
+                this.gridDatabase.Refresh();
                 this.gridDatabase.Update();
                 
             }
@@ -79,21 +78,39 @@ namespace DataBaseMigrator
 
         }
 
-        private async void btnWriteToDb_Click(object sender, EventArgs e)
+        private void btnWriteToDb_Click(object sender, EventArgs e)
         {
             try
             {
-                this._brandAbbreviations = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(brandkuerzel)}.xml"))
-                               .ToList();
+                this._assetInfos = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"))
+                                                            .ToList();
 
-                this._brandAbbreviations.ToList().ForEach(x => Factory.CreateBrand(Factory.GetWorkUnit(), x));
-                await this._accessLayer.UpdateAsync();
+                this.WriteToDb(this._assetInfos);
+
+
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
 
             }
+        }
+
+        private  async void WriteToDb(IEnumerable<assets> assets)
+        {
+            //TAKE LIST, TAKE CERTAIN ELEMENT AMOUNT; REMOVE ELEMENTS; REDO
+
+            if (!assets.Any())
+                return;
+
+            await this._accessLayer.UpdateAsync();
+
+            var assetCount = assets.Count() >= 100 ? 100 : assets.Count();
+            var assetsToCommit = assets.Take(assetCount);
+
+            assetsToCommit.ToList().ForEach(x => Factory.CreateAsset(Factory.GetWorkUnit(), x));
+            this.WriteToDb(assets.Skip(assetCount));
+
         }
     }
 }
