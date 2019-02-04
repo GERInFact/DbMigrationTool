@@ -52,6 +52,13 @@ namespace Models
                 });
         }
 
+        [Key, Persistent]
+        public int AssetId
+        {
+            get => this._assetId;
+            set => this.SetPropertyValue(nameof(this.AssetId).ToLower(), ref this._assetId, value);
+        }
+
         [Association]
         public AssetInfo AssetInfo
         {
@@ -72,13 +79,7 @@ namespace Models
             get => this._marketingInfo;
             set => this.SetPropertyValue(nameof(this.MarketingInfo).ToLower(), ref this._marketingInfo, value);
         }
-        [Key, Persistent]
-        [DbType("varchar(500)")]
-        public int AssetId
-        {
-            get => this._assetId;
-            set => this.SetPropertyValue(nameof(this.AssetId).ToLower(), ref this._assetId, value);
-        }
+      
 
         [DbType("varchar(500)")]
         public string Brand
@@ -142,8 +143,6 @@ namespace Models
             get => this._attribut2;
             set => this.SetPropertyValue(nameof(this.Attribut2).ToLower(), ref this._attribut2, value);
         }
-       
-      
        
        
         [DbType("varchar(500)")]

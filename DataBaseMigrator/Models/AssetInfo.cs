@@ -66,7 +66,6 @@ namespace Models
         }
 
         [Key, Persistent]
-        [DbType("varchar(500)")]
         public int AssetId
         {
             get => this._assetId;

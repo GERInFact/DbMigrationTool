@@ -96,12 +96,19 @@ namespace DataBaseMigrator
                                             var assetInfo = Factory.CreateAssetInfo(session, a);
                                             var productInfo = Factory.CreateProductInfo(session, a);
                                             var salesInfo = Factory.CreateSalesInfo(session, a);
+                                            var marketingInfo = Factory.CreateMarketingInfo(session, a);
                                             assetInfo.SalesInfo = salesInfo;
-                                            productInfo.SalesInfo = salesInfo;
                                             assetInfo.ProductInfo = productInfo;
+                                            assetInfo.MarketingInfo = marketingInfo;
+                                            productInfo.SalesInfo = salesInfo;
                                             productInfo.AssetInfo = assetInfo;
+                                            productInfo.MarketingInfo = marketingInfo;
                                             salesInfo.ProductInfo = productInfo;
                                             salesInfo.AssetInfo = assetInfo;
+                                            salesInfo.MarketingInfo = marketingInfo;
+                                            marketingInfo.ProductInfo = productInfo;
+                                            marketingInfo.AssetInfo = assetInfo;
+                                            marketingInfo.SalesInfo = salesInfo;
                                        });
 
     

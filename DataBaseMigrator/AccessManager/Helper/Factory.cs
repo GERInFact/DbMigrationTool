@@ -128,7 +128,7 @@ namespace AccessManager.Helper
             if (session != null && asset != null)
                 return new ProductInfo(session)
                 {
-                   // AssetId = asset.AssetId,
+                    AssetId = asset.AssetId,
                     Name = asset.Name,
                     Archive = asset.Archive,
                     Attribut1 = asset.Attribut1,
@@ -166,6 +166,25 @@ namespace AccessManager.Helper
             }
 
             return new SalesInfo(GetWorkUnit());
+        }
+
+        public static MarketingInfo CreateMarketingInfo(Session session, assets asset)
+        {
+            if (session != null && asset != null)
+            {
+                return new MarketingInfo(session)
+                {
+                    AssetId = asset.AssetId,
+                   Agentur = asset.Agentur,
+                   Copyright = asset.Copyright,
+                   Fotograf = asset.Fotograf,
+                   Promotion = asset.Promotion,
+                   SichtbarAb = asset.SichtbarAb,
+                   Veroeffentlichung = asset.Veroeffentlichung
+                };
+            }
+
+            return new MarketingInfo(GetWorkUnit());
         }
 
 
