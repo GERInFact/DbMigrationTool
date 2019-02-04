@@ -18,7 +18,7 @@ namespace DataBaseMigrator
     {
         private readonly IAccessLayer<assets> _accessLayer;
         private readonly ISerializer<assets> _serializer;
-        private IEnumerable<assets> _assetInfos;
+        private IEnumerable<assets> _assets;
 
 
         public Form1(IAccessLayer<assets> accessLayer, ISerializer<assets> serializer)
@@ -40,24 +40,24 @@ namespace DataBaseMigrator
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-               
+
             }
-            
+
         }
 
         private async void btnSerialize_Click(object sender, EventArgs e)
         {
             try
             {
-                this._assetInfos = await this._accessLayer.ReadAsync();
-                this._assetInfos = this._assetInfos.OrderBy(x => x.AssetId).ToList();
-                this._serializer.Write(this._assetInfos, Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"));
+                this._assets = await this._accessLayer.ReadAsync();
+                this._assets = this._assets.OrderBy(x => x.AssetId).ToList();
+                this._serializer.Write(this._assets, Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"));
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
-         
+
         }
 
         private async void btnDeserialize_Click(object sender, EventArgs e)
@@ -65,11 +65,11 @@ namespace DataBaseMigrator
             try
             {
                 this.gridDatabase.DataSource = null;
-                var list = await Task.Run(() =>this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml")).ToList());
+                var list = await Task.Run(() => this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml")).ToList());
                 this.gridDatabase.DataSource = list;
                 this.gridDatabase.Refresh();
                 this.gridDatabase.Update();
-                
+
             }
             catch (Exception exception)
             {
@@ -78,39 +78,65 @@ namespace DataBaseMigrator
 
         }
 
-        private void btnWriteToDb_Click(object sender, EventArgs e)
+        private async void btnWriteToDb_Click(object sender, EventArgs e)
         {
             try
             {
-                this._assetInfos = this._serializer.Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"))
-                                                            .ToList();
+                this._assets = this._serializer
+                                       .Read(Path.Combine(Application.StartupPath, $"{nameof(assets)}.xml"))
+                                       .ToList();
 
-                this.WriteToDb(this._assetInfos);
+      
+
+                this._assets
+                    .ToList()
+                    .ForEach(a =>
+                                       {
+                                            var session = Factory.GetWorkUnit();
+                                            var assetInfo = Factory.CreateAssetInfo(session, a);
+                                            var productInfo = Factory.CreateProductInfo(session, a);
+                                            var salesInfo = Factory.CreateSalesInfo(session, a);
+                                            assetInfo.SalesInfo = salesInfo;
+                                            productInfo.SalesInfo = salesInfo;
+                                            assetInfo.ProductInfo = productInfo;
+                                            productInfo.AssetInfo = assetInfo;
+                                            salesInfo.ProductInfo = productInfo;
+                                            salesInfo.AssetInfo = assetInfo;
+                                       });
+
+    
+
+                 await this._accessLayer.UpdateAsync();
+
+                // await this.WriteToDbAsync(this._assets);
+
+                MessageBox.Show("Upload completed.");
 
 
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-
             }
         }
 
-        private  async void WriteToDb(IEnumerable<assets> assets)
+        private async Task WriteToDbAsync(IEnumerable<assets> assets)
         {
             //TAKE LIST, TAKE CERTAIN ELEMENT AMOUNT; REMOVE ELEMENTS; REDO
 
-            if (!assets.Any())
+            var enumerable = assets.ToList();
+            if (!enumerable.Any())
                 return;
 
+            var assetCount = enumerable.Count() >= 1000 ? 1000 : enumerable.Count();
+            var assetsToCommit = enumerable.Take(assetCount);
+
+
+            assetsToCommit.ToList().ForEach(x =>
+                                                Factory.CreateAsset(Factory.GetWorkUnit(), x));
+
             await this._accessLayer.UpdateAsync();
-
-            var assetCount = assets.Count() >= 100 ? 100 : assets.Count();
-            var assetsToCommit = assets.Take(assetCount);
-
-            assetsToCommit.ToList().ForEach(x => Factory.CreateAsset(Factory.GetWorkUnit(), x));
-            this.WriteToDb(assets.Skip(assetCount));
-
+            this.WriteToDbAsync(enumerable.Skip(assetCount));
         }
     }
 }

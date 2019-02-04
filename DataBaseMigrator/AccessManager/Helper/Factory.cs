@@ -105,6 +105,70 @@ namespace AccessManager.Helper
             return new assets(session);
         }
 
+        public static AssetInfo CreateAssetInfo(Session session, assets asset)
+        {
+            if (session != null && asset != null)
+                return new AssetInfo(session)
+                {
+                    AssetId = asset.AssetId,
+                    ParentAssetID = asset.ParentAssetID,
+                    DateiGroesse = asset.DateiGroesse,
+                    DatenMenge = asset.DatenMenge,
+                    FileNameAlt = asset.FileNameAlt,
+                    FileNameEu = asset.FileNameEu,
+                    FileNameLang = asset.FileNameLang,
+                    FileNameOriginal = asset.FileNameOriginal
+                };
+
+            return new AssetInfo(GetWorkUnit());
+        }
+
+        public static ProductInfo CreateProductInfo(Session session, assets asset)
+        {
+            if (session != null && asset != null)
+                return new ProductInfo(session)
+                {
+                   // AssetId = asset.AssetId,
+                    Name = asset.Name,
+                    Archive = asset.Archive,
+                    Attribut1 = asset.Attribut1,
+                    Attribut2 = asset.Attribut2,
+                    Brand = asset.Brand,
+                    DatumEnd = asset.DatumEnd,
+                    DatumStart = asset.DatumStart,
+                    EmailSended = asset.EmailSended,
+                    Export = asset.Export,
+                    Geschmack =asset.Geschmack,
+                    MediaType = asset.MediaType,
+                    Nicht_Exportieren = asset.Nicht_Exportieren,
+                    Position = asset.Position,
+                    Segment = asset.Segment,
+                    Size = asset.Size,
+                    VerpackungsArt = asset.VerpackungsArt,
+                    Version = asset.Version
+                };
+
+            return new ProductInfo(GetWorkUnit());
+        }
+
+        public static SalesInfo CreateSalesInfo(Session session, assets asset)
+        {
+            if (session != null && asset != null)
+            {
+                return new SalesInfo(session)
+                {
+                    AssetId = asset.AssetId,
+                    EanSekundaer = asset.EanSekundaer,
+                    Ean_Klein = asset.Ean_Klein,
+                    Vbn_Ean = asset.Vbn_Ean,
+                    Vse_Ean = asset.Vse_Ean
+                };
+            }
+
+            return new SalesInfo(GetWorkUnit());
+        }
+
+
         public static ISerializer<T> CreateDefaultSerializer<T>() where T : ISerializable
         {
             return new CustomXmlSerializer<T>();

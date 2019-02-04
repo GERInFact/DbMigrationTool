@@ -70,30 +70,32 @@ namespace Models
         }
 
         [Key, Persistent]
+        [DbType("varchar(500)")]
         public int AssetId
         {
             get => this._assetId;
             set => this.SetPropertyValue(nameof(this.AssetId).ToLower(), ref this._assetId, value);
         }
 
+        [DbType("varchar(500)")]
         public string Vbn_Ean
         {
             get => this._vbnEan;
             set => this.SetPropertyValue(nameof(this.Vbn_Ean).ToLower(), ref this._vbnEan, value);
         }
-
+        [DbType("varchar(500)")]
         public string Brand
         {
             get => this._brand;
             set => this.SetPropertyValue(nameof(this.Brand).ToLower(),ref this._brand , value);
         }
-
+        [DbType("varchar(500)")]
         public string Name
         {
             get => this._name;
             set => this.SetPropertyValue(nameof(this.Name).ToLower(), ref  this._name, value);
         }
-
+        [DbType("varchar(500)")]
         public int Version
         {
             get => this._version;
@@ -112,109 +114,109 @@ namespace Models
             set => this.SetPropertyValue(nameof(this.Archive).ToLower(), ref this._archive, value);
         }
 
-
+        [DbType("varchar(500)")]
         public string Segment
         {
             get => this._segment;
             set => this.SetPropertyValue(nameof(this.Segment).ToLower(), ref this._segment, value);
         }
-
+        [DbType("varchar(500)")]
         public string VerpackungsArt
         {
             get => this._verpackungsArt;
             set => this.SetPropertyValue(nameof(this.VerpackungsArt).ToLower(), ref this._verpackungsArt, value);
         }
-
+        [DbType("varchar(500)")]
         public string Size
         {
             get => this._size;
             set => this.SetPropertyValue(nameof(this.Size).ToLower(), ref this._size, value);
         }
-
+        [DbType("varchar(500)")]
         public string Veroeffentlichung
         {
             get => this._veroeffentlichung;
             set => this.SetPropertyValue(nameof(this.Veroeffentlichung).ToLower(), ref this._veroeffentlichung, value);
         }
-
+        [DbType("varchar(500)")]
         public string Attribut1
         {
             get => this._attribut1;
             set => this.SetPropertyValue(nameof(this.Attribut1).ToLower(), ref this._attribut1, value);
         }
-
+        [DbType("varchar(500)")]
         public string Attribut2
         {
             get => this._attribut2;
             set => this.SetPropertyValue(nameof(this.Attribut2).ToLower(), ref this._attribut2, value);
         }
-
+        [DbType("varchar(500)")]
         public string Promotion
         {
             get => this._promotion;
             set => this.SetPropertyValue(nameof(this.Promotion).ToLower(), ref this._promotion, value);
         }
-
+        [DbType("varchar(500)")]
         public string Copyright
         {
             get => this._copyright;
             set => this.SetPropertyValue(nameof(this.Copyright).ToLower(), ref this._copyright, value);
         }
-
+        [DbType("varchar(500)")]
         public string Fotograf
         {
             get => this._fotograf;
             set => this.SetPropertyValue(nameof(this.Fotograf).ToLower(), ref this._fotograf, value);
         }
-
+        [DbType("varchar(500)")]
         public string Agentur
         {
             get => this._agentur;
             set => this.SetPropertyValue(nameof(this.Agentur).ToLower(), ref this._agentur, value);
         }
-
+        [DbType("varchar(500)")]
         public string DatenMenge
         {
             get => this._datenMenge;
             set => this.SetPropertyValue(nameof(this.DatenMenge).ToLower(), ref this._datenMenge, value);
         }
-
+        [DbType("varchar(500)")]
         public string DateiGroesse
         {
             get => this._dateiGroesse;
             set => this.SetPropertyValue(nameof(this.DateiGroesse).ToLower(), ref this._dateiGroesse, value);
         }
-
+        [DbType("varchar(500)")]
         public string DatumStart
         {
             get => this._datumStart;
             set => this.SetPropertyValue(nameof(this.DatumStart).ToLower(), ref this._datumStart, value);
         }
-
+        [DbType("varchar(500)")]
         public string DatumEnd
         {
             get => this._datumEnd;
             set => this.SetPropertyValue(nameof(this.DatumEnd).ToLower(), ref this._datumEnd, value);
         }
-
+        [DbType("varchar(500)")]
         public string SichtbarAb
         {
             get => this._sichtbarAb;
             set => this.SetPropertyValue(nameof(this.SichtbarAb).ToLower(), ref this._sichtbarAb, value);
         }
-
+        [DbType("varchar(500)")]
         public string EanSekundaer
         {
             get => this._eanSekundaer;
             set => this.SetPropertyValue(nameof(this.EanSekundaer).ToLower(), ref this._eanSekundaer, value);
         }
-
+        [DbType("varchar(500)")]
         public string FileNameOriginal
         {
             get => this._fileNameOriginal;
             set => this.SetPropertyValue(nameof(this.FileNameOriginal).ToLower(), ref this._fileNameOriginal, value);
         }
-
+        [DbType("varchar(500)")]
         public string FileNameEu
         {
             get => this._fileNameEu;
@@ -226,7 +228,7 @@ namespace Models
             get => this._export;
             set => this.SetPropertyValue(nameof(this.Export).ToLower(), ref this._export, value);
         }
-
+        [DbType("varchar(500)")]
         public string Ean_Klein
         {
             get => this._eanKlein;
@@ -238,13 +240,13 @@ namespace Models
             get => this._position;
             set => this.SetPropertyValue(nameof(this.Position).ToLower(), ref this._position, value);
         }
-
+        [DbType("varchar(500)")]
         public string FileNameLang
         {
             get => this._fileNameLang;
             set => this.SetPropertyValue(nameof(this.FileNameLang).ToLower(), ref this._fileNameLang, value);
         }
-
+        [DbType("varchar(500)")]
         public string FileNameAlt
         {
             get => this._fileNameAlt;
@@ -268,13 +270,13 @@ namespace Models
             get => this._parentAssetId;
             set => this.SetPropertyValue(nameof(this.ParentAssetID), ref this._parentAssetId, value);
         }
-
+        [DbType("varchar(500)")]
         public string Geschmack
         {
             get => this._geschmack;
             set => this.SetPropertyValue(nameof(this.Geschmack).ToLower(), ref this._geschmack, value);
         }
-
+        [DbType("varchar(500)")]
         public string Vse_Ean
         {
             get => this._vseEan;
